@@ -41,7 +41,6 @@ export const RepositoriesTable = () => {
     handlePageChange,
     totalPages,
     handleSelectRepo,
-    totalItems,
   } = useGithubData();
 
   // Transforming the data to display it in the table
