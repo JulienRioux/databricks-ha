@@ -110,7 +110,8 @@ const columns = [
   },
 ];
 
-const ITEM_PER_PAGE = 10;
+// TODOP: Move into config.
+export const ITEM_PER_PAGE = 10;
 
 let totalItems = 0;
 
@@ -182,6 +183,7 @@ export default function Home() {
           onChange={handleChange}
           type="search"
           placeholder="Search..."
+          autoFocus
         />
       </form>
 

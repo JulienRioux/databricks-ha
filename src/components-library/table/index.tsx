@@ -1,25 +1,8 @@
 import { FC } from "react";
-import { Skeleton } from "../skeleton";
 import { TableComponent, Thead, Th, Tbody, Tr, Td } from "./styles";
 import { TableProps } from "./types";
-
-// TODO: Move into a separate file
-const TableSkeleton = ({
-  columnsLength,
-  rowsLength = 10,
-}: {
-  columnsLength: number;
-  rowsLength?: number;
-}) =>
-  Array.from({ length: rowsLength }, (_, rowIndex) => (
-    <Tr key={`table_skeleton_${rowIndex}`}>
-      {Array.from({ length: columnsLength }, (_, colIndex) => (
-        <Td key={`table_skeleton_${colIndex}_${rowIndex}`}>
-          <Skeleton width="60px" />
-        </Td>
-      ))}
-    </Tr>
-  ));
+import { TableSkeleton } from "./skeleton";
+import { ITEM_PER_PAGE } from "@/app/page";
 
 export const Table: FC<TableProps> = ({
   columns,
@@ -46,7 +29,12 @@ export const Table: FC<TableProps> = ({
             </Tr>
           ))}
 
-        {isLoading && <TableSkeleton columnsLength={columns?.length} />}
+        {isLoading && (
+          <TableSkeleton
+            columnsLength={columns?.length}
+            rowsLength={ITEM_PER_PAGE}
+          />
+        )}
       </Tbody>
     </TableComponent>
   );

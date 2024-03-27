@@ -1,13 +1,5 @@
 import styled from "styled-components";
-
-interface FlexProps {
-  $justify?: string;
-  $align?: string;
-  $direction?: string;
-  $gap?: string;
-  $width?: string;
-  $wrap?: string;
-}
+import { FlexProps } from "./types";
 
 export const Flex = styled.div<FlexProps>`
   display: flex;
