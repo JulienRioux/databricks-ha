@@ -8,7 +8,11 @@ export const UserBio = ({ fetchUrl }: { fetchUrl: string }) => {
 
   return (
     <Flex>
-      {isLoading ? <Skeleton /> : <span>Bio: {data?.bio ?? "No bio"}</span>}
+      {isLoading ? (
+        <Skeleton testId="user-bio-skeleton" />
+      ) : (
+        <span data-testid="user-bio">Bio: {data?.bio ?? "No bio"}</span>
+      )}
     </Flex>
   );
 };

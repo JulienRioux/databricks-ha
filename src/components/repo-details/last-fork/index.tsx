@@ -11,14 +11,20 @@ export const LastFork = ({ fetchUrl }: { fetchUrl: string }) => {
   const username = user?.login ?? "User not found...";
 
   if (!isLoading && !data?.length) {
-    return <div>No fork...</div>;
+    return <div data-testid="last-fork-no-fork">No fork...</div>;
   }
 
   return (
     <>
-      {isLoading ? <Skeleton /> : <div>Last fork: {username}</div>}
+      {isLoading ? (
+        <Skeleton testId="last-fork-skeleton" />
+      ) : (
+        <div data-testid="last-fork-username">Last fork: {username}</div>
+      )}
 
-      {user && (isLoading ? <Skeleton /> : <UserBio fetchUrl={user?.url} />)}
+      {user && <UserBio fetchUrl={user?.url} />}
+
+      {isLoading && <Skeleton testId="user-bio-skeleton" />}
     </>
   );
 };
