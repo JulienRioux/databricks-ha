@@ -1,7 +1,7 @@
 import { Skeleton } from "@/components-library/skeleton";
 import useSWR from "swr";
 import { Commit } from "./types";
-import { Alert } from "@/components/alert";
+import { Alert } from "@/components-library/alert";
 import { fetcher } from "@/lib/fetcher";
 
 export const LastCommits = ({ fetchUrl }: { fetchUrl: string }) => {

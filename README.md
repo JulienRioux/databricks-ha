@@ -1,8 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Databricks Gihub repository list
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Add a Github basic auth token to your `.env.local` file:
+
+NEXT_PUBLIC_GITHUB_ACCESS_TOKEN=MY_GITHUB_AUTH_TOKEN
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +20,27 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project contains 7 main folders:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `/app`: Contains basic layout and is the entry point of the app.
+- `/components`: Mostly contains block of components or components specific of the app.
+- `/components-library`: Contains basics reusable UI components.
+- `/config`: Contains app configurations (ex: API_URLS, ITEM_PER_PAGE, etc.)
+- `/contex`t: Contains the state of the app using React context.
+- `/lib`: Contains helpers functions.
 
-## Learn More
+## Testing metrics and results
 
-To learn more about Next.js, take a look at the following resources:
+| Metric      | Result              |
+| ----------- | ------------------- |
+| Test Suites | 17 passed, 17 total |
+| Tests       | 55 passed, 55 total |
+| Snapshots   | 0 total             |
+| Time        | 2.774 s             |
+| Total Time  | Done in 4.88s       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Happy reviewing!

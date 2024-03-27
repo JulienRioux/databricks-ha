@@ -2,7 +2,7 @@ import { Skeleton } from "@/components-library/skeleton";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 import { UserBio } from "../user-bio";
-import { Alert } from "@/components/alert";
+import { Alert } from "@/components-library/alert";
 
 export const LastFork = ({ fetchUrl }: { fetchUrl: string }) => {
   const { data, error, isLoading } = useSWR(fetchUrl, fetcher);

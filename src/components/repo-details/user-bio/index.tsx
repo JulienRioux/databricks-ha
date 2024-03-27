@@ -1,6 +1,6 @@
 import { Flex } from "@/components-library/flex";
 import { Skeleton } from "@/components-library/skeleton";
-import { Alert } from "@/components/alert";
+import { Alert } from "@/components-library/alert";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 

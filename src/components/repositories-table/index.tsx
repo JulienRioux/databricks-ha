@@ -2,7 +2,7 @@ import Pagination from "@/components-library/pagination";
 import { Table } from "@/components-library/table";
 import { useGithubData } from "@/context/github-data";
 import { transformRepoDataToTableData } from "./transform-repo-data-to-table-data";
-import { Alert } from "../alert";
+import { Alert } from "../../components-library/alert";
 
 const columns = [
   {
