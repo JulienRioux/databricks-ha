@@ -2,6 +2,9 @@
 
 ---
 
+You can find a deployed version of the app here:
+https://databricks-4v6coyrj1-julienriouxs-projects.vercel.app/
+
 ## Getting Started
 
 Add a Github basic auth token to your `.env.local` file:
