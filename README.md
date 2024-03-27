@@ -9,7 +9,9 @@ https://databricks-4v6coyrj1-julienriouxs-projects.vercel.app/
 
 Add a Github basic auth token to your `.env.local` file:
 
+````bash
 NEXT_PUBLIC_GITHUB_ACCESS_TOKEN=MY_GITHUB_AUTH_TOKEN
+```bash
 
 Then, run the development server:
 
@@ -21,7 +23,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 ## Project structure
 
