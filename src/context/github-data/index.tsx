@@ -16,7 +16,11 @@ import {
   useEffect,
 } from "react";
 import useSWR from "swr";
-import { GithubDataContextState, GithubDataProviderProps } from "./types";
+import {
+  GitHubRepoItems,
+  GithubDataContextState,
+  GithubDataProviderProps,
+} from "./types";
 
 // Initialize the context
 export const GithubDataContext = createContext<
@@ -37,7 +41,8 @@ export const GithubDataProvider: FC<GithubDataProviderProps> = ({
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   // Handling selected repo data
-  const [selectedRepoData, setSelectedRepoData] = useState<any>(null);
+  const [selectedRepoData, setSelectedRepoData] =
+    useState<GitHubRepoItems | null>(null);
 
   // Handling repository query api call
   const { data, error, isLoading } = useSWR(

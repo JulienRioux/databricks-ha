@@ -1,8 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Pagination from "..";
 
-// TODO: expect onChange to have been called with...
-
 describe("<Pagination />", () => {
   it("Renders correctly.", () => {
     render(<Pagination current={1} total={5} onChange={jest.fn()} />);

@@ -2,11 +2,12 @@ import { Skeleton } from "@/components-library/skeleton";
 import useSWR from "swr";
 import { Commit } from "./types";
 import { Alert } from "@/components/alert";
+import { fetcher } from "@/lib/fetcher";
 
 export const LastCommits = ({ fetchUrl }: { fetchUrl: string }) => {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR<Commit[]>(fetchUrl, fetcher);
 
+  // Show an error msg if it happens
   if (error) return <Alert>Error while loading commits</Alert>;
 
   if (!data?.length && !isLoading)
