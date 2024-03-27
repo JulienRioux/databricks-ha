@@ -2,7 +2,7 @@ import { FC } from "react";
 import { TableComponent, Thead, Th, Tbody, Tr, Td } from "./styles";
 import { TableProps } from "./types";
 import { TableSkeleton } from "./skeleton";
-import { ITEM_PER_PAGE } from "@/app/page";
+import { ITEM_PER_PAGE } from "@/config";
 
 export const Table: FC<TableProps> = ({
   columns,

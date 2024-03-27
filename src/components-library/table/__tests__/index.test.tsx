@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Table } from "..";
-import { ITEM_PER_PAGE } from "@/app/page";
 import { COLUMNS_MOCK, DATA_SOURCE_MOCK } from "./__fixtures__";
+import { ITEM_PER_PAGE } from "@/config";
 
 describe("<Table />", () => {
   it("Render the table component.", () => {

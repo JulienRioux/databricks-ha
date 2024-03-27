@@ -3,6 +3,7 @@ import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { MainLayout } from "@/components/main-layout";
 import { StyledComponentsRegistry } from "@/context/styled-components";
+import { GithubDataProvider } from "@/context/github-data";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={dmSans.className}>
         <StyledComponentsRegistry>
-          <MainLayout>{children}</MainLayout>
+          <GithubDataProvider>
+            <MainLayout>{children}</MainLayout>
+          </GithubDataProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
