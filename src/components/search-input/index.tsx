@@ -5,9 +5,7 @@ import { SetStateAction, useCallback, useState } from "react";
 export const SearchInput = () => {
   const { handleSearch } = useGithubData();
 
-  const [searchString, setSearchString] = useState<string>(
-    "apache language:scala"
-  );
+  const [searchString, setSearchString] = useState<string>("");
 
   const handleChange = useCallback(
     (e: { target: { value: SetStateAction<string> } }) => {
@@ -27,8 +25,9 @@ export const SearchInput = () => {
         value={searchString}
         onChange={handleChange}
         type="search"
-        placeholder="Search..."
+        placeholder="Search for repositories..."
         autoFocus
+        data-testid="search-input"
       />
     </form>
   );

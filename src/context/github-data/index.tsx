@@ -18,9 +18,9 @@ import useSWR from "swr";
 import { GithubDataContextState, GithubDataProviderProps } from "./types";
 
 // Initialize the context
-const GithubDataContext = createContext<GithubDataContextState | undefined>(
-  undefined
-);
+export const GithubDataContext = createContext<
+  GithubDataContextState | undefined
+>(undefined);
 
 // Data provider
 export const GithubDataProvider: FC<GithubDataProviderProps> = ({

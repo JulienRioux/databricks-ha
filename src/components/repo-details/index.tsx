@@ -1,11 +1,6 @@
-import { FC } from "react";
 import { Flex } from "@/components-library/flex";
-import { Skeleton } from "@/components-library/skeleton";
-import { fetcher } from "@/lib/fetcher";
-import useSWR from "swr";
 import { CloseBtn, DetailsWrapper } from "./styles";
 import { useGithubData } from "@/context/github-data";
-import { UserBio } from "./user-bio";
 import { LastFork } from "./last-fork";
 import { LastCommits } from "./last-commits";
 
@@ -28,7 +23,9 @@ export const RepoDetails = () => {
     <DetailsWrapper>
       <Flex>
         <Flex $direction="column">
-          <h4>Details about {selectedRepoData?.name}</h4>
+          <h4 data-testid="details-title">
+            Details about {selectedRepoData?.name}
+          </h4>
 
           <LastCommits fetchUrl={findLastCommitsUrl} />
 
@@ -36,7 +33,12 @@ export const RepoDetails = () => {
         </Flex>
 
         <div>
-          <CloseBtn onClick={() => setSelectedRepoData(null)}>×</CloseBtn>
+          <CloseBtn
+            data-testid="close-button"
+            onClick={() => setSelectedRepoData(null)}
+          >
+            ×
+          </CloseBtn>
         </div>
       </Flex>
     </DetailsWrapper>

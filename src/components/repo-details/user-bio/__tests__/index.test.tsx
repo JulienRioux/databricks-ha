@@ -5,7 +5,7 @@ import useSWR from "swr";
 // Mock useSWR
 jest.mock("swr", () => jest.fn());
 
-describe("UserBio", () => {
+describe("<UserBio />", () => {
   beforeEach(() => {
     (useSWR as jest.Mock).mockClear();
   });
@@ -18,6 +18,7 @@ describe("UserBio", () => {
     });
     render(<UserBio fetchUrl="/test-url" />);
     expect(screen.getByTestId("user-bio-skeleton")).toBeInTheDocument();
+    // User bio should not show up
     expect(screen.queryByTestId("user-bio")).not.toBeInTheDocument();
   });
 
