@@ -1,7 +1,5 @@
 # Databricks Gihub repository list
 
----
-
 You can find a deployed version of the app here:
 https://databricks-4v6coyrj1-julienriouxs-projects.vercel.app/
 
@@ -45,7 +43,5 @@ The project contains 7 main folders:
 | Snapshots   | 0 total             |
 | Time        | 2.774 s             |
 | Total Time  | Done in 4.88s       |
-
----
 
 ### Happy reviewing!
