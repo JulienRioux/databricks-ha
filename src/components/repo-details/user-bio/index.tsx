@@ -1,10 +1,13 @@
 import { Flex } from "@/components-library/flex";
 import { Skeleton } from "@/components-library/skeleton";
+import { Alert } from "@/components/alert";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 
 export const UserBio = ({ fetchUrl }: { fetchUrl: string }) => {
   const { data, error, isLoading } = useSWR(fetchUrl, fetcher);
+
+  if (error) return <Alert>Error while loading user bio</Alert>;
 
   return (
     <Flex>

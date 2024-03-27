@@ -13,6 +13,7 @@ import {
   useCallback,
   FC,
   useMemo,
+  useEffect,
 } from "react";
 import useSWR from "swr";
 import { GithubDataContextState, GithubDataProviderProps } from "./types";
@@ -26,6 +27,9 @@ export const GithubDataContext = createContext<
 export const GithubDataProvider: FC<GithubDataProviderProps> = ({
   children,
 }) => {
+  // Check if the user has fetch data
+  const [userHasSearch, setUserHasSearch] = useState(false);
+
   // Handling search query
   const [query, setQuery] = useState<string>("");
 
@@ -53,6 +57,7 @@ export const GithubDataProvider: FC<GithubDataProviderProps> = ({
     setCurrentPage(1);
     // Reset the selectedRepoData if was set
     setSelectedRepoData(null);
+    setUserHasSearch(true);
   }, []);
 
   const handleSelectRepo = useCallback(
@@ -67,9 +72,19 @@ export const GithubDataProvider: FC<GithubDataProviderProps> = ({
   );
 
   //   Getting the total number of repositories
-  const totalItems = useMemo(() => {
-    return data?.total_count ?? 0;
-  }, [data]);
+  // const totalItems = useMemo(() => {
+  //   if (!isLoading) return data?.total_count ?? 0;
+  // }, [data?.total_count, isLoading]);
+
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    // Only update totalItems if not loading and data?.total_count is defined
+    if (!isLoading && data?.total_count !== undefined) {
+      setTotalItems(data.total_count);
+    }
+    // Dependencies array includes isLoading and data?.total_count to trigger the effect when these change
+  }, [isLoading, data?.total_count]);
 
   // Calculate the total pages, considering GitHub's API limitation
   const totalPages = useMemo(() => {
@@ -78,7 +93,6 @@ export const GithubDataProvider: FC<GithubDataProviderProps> = ({
     return Math.min(pages, MAX_GITHUB_ITEMS_AIP_RESPONSE / ITEM_PER_PAGE);
   }, [totalItems]);
 
-  // TODO: Cleanup the unnecessary returned value
   return (
     <GithubDataContext.Provider
       value={{

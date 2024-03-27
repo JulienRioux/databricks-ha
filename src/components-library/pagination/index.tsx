@@ -32,6 +32,8 @@ const Pagination: FC<PaginationProps> = ({ current, total, onChange }) => {
   const SHOW_LAST_PAGE =
     paginationNumbers.length && !paginationNumbers?.includes(total);
 
+  if (total === 0) return null;
+
   return (
     <PaginationWrapper>
       <PageNumber

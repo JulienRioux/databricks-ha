@@ -2,6 +2,7 @@ import Pagination from "@/components-library/pagination";
 import { Table } from "@/components-library/table";
 import { useGithubData } from "@/context/github-data";
 import { transformRepoDataToTableData } from "./transform-repo-data-to-table-data";
+import { Alert } from "../alert";
 
 const columns = [
   {
@@ -40,6 +41,7 @@ export const RepositoriesTable = () => {
     handlePageChange,
     totalPages,
     handleSelectRepo,
+    totalItems,
   } = useGithubData();
 
   // Transforming the data to display it in the table
@@ -48,11 +50,9 @@ export const RepositoriesTable = () => {
     handleSelectRepo,
   });
 
-  const HAS_DATA = !!tableData?.length;
-
   return (
     <>
-      {error && <div data-testid="repo-table-error">Failed to load</div>}
+      {error && <Alert data-testid="repo-table-error">Failed to load</Alert>}
 
       <Table
         columns={columns}
@@ -61,13 +61,11 @@ export const RepositoriesTable = () => {
         isLoading={isLoading}
       />
 
-      {HAS_DATA && (
-        <Pagination
-          current={currentPage}
-          total={totalPages}
-          onChange={handlePageChange}
-        />
-      )}
+      <Pagination
+        current={currentPage}
+        total={totalPages}
+        onChange={handlePageChange}
+      />
     </>
   );
 };
