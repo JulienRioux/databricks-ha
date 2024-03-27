@@ -5,7 +5,7 @@ import { AppName, NavbarInnerWrapper, NavbarWrapper } from "./styles";
 
 export const Navbar = () => {
   return (
-    <NavbarWrapper>
+    <NavbarWrapper data-testid="navbar">
       <NavbarInnerWrapper>
         <Image
           src="/databricks-logo.svg"
