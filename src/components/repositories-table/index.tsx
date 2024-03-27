@@ -52,7 +52,7 @@ export const RepositoriesTable = () => {
 
   return (
     <>
-      {error && <div>Failed to load</div>}
+      {error && <div data-testid="repo-table-error">Failed to load</div>}
 
       <Table
         columns={columns}
@@ -62,13 +62,11 @@ export const RepositoriesTable = () => {
       />
 
       {HAS_DATA && (
-        <div>
-          <Pagination
-            current={currentPage}
-            total={totalPages}
-            onChange={handlePageChange}
-          />
-        </div>
+        <Pagination
+          current={currentPage}
+          total={totalPages}
+          onChange={handlePageChange}
+        />
       )}
     </>
   );
